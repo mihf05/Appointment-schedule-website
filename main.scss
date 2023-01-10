@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+
+:root {
+  --PrimaryColor: #000000;
+  --SecondaryColor: #f6d5a4;
+  --BgColor: #e9d7e5;
+  --HeaderHeight: 3rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+// REUSABLE SCSS ---------------------------------->
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.navLink {
+  text-decoration: none;
+}
+
+.navItem {
+  list-style: none;
+}
+
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  height: 35px;
+}
+
+// BODY SCSS --------------------------------------------------->
+
+body {
+  width: 100%;
+
+  background: radial-gradient(var(--SecondaryColor), var(--BgColor));
+  background-repeat: no-repeat;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.486);
+}
+
+.ctaBtn {
+  padding: 0.5rem 1rem;
+  background: var(--SecondaryColor);
+  border-radius: 5px;
+
+  a {
+    text-decoration: none;
+    color: var(--PrimaryColor);
+    font-weight: 600;
+  }
+}
+
+.ctaBtn:hover {
+  background: var(--PrimaryColor);
+}
+
+.ctaBtn:hover a {
+  color: var(--SecondaryColor);
+}
+
+.headerBG {
+  background: var(--BgColor);
+}
+
+@media screen and (max-width: 767px) {
+  .navBar {
+    position: fixed;
+    top: -100%;
+    right: 0;
+    left: 0;
+    background: var(--PrimaryColor);
+    color: var(--BgColor);
+    z-index: 100;
+    padding: 3rem;
+    text-align: center;
+    transition: 0.4s;
+
+    .closeDiv {
+      position: absolute;
+      top: 1rem;
+      left: -50%;
+      right: -50%;
+      margin-bottom: 1rem;
+
+      .closeIcon {
+        filter: invert(1);
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      .closeIcon:hover {
+        transform: rotate(180deg);
+      }
+    }
+
+    .navList {
+      margin-top: 1rem;
+
+      .text:nth-child(1) {
+        margin-right: 0.4rem;
+      }
+
+      .navItem {
+        color: var(--BgColor);
+        padding: 1rem 0;
+
+        .navLink {
+          color: var(--BgColor);
+          font-weight: 600;
+          cursor: pointer;
+          padding: 0 0.5rem;
+          border-bottom: 2px solid var(--BgColor);
+        }
+
+        .navLink:hover {
+          color: var(--SecondaryColor);
+        }
+      }
+    }
+  }
+}
+
+.show {
+  top: 0;
+}
+
+// SECTION SCSS STARTS HERE============================>
+
+.section {
+  padding-top: calc(var(--HeaderHeight) + 3rem);
+
+  .content {
+    .subTitle {
+      font-size: 200;
+      font-size: 1.1rem;
+    }
+
+    .Title {
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 2.7rem;
+      padding: 0.7rem 0;
+    }
+  }
+
+  .middleDiv {
+    padding: 1rem 0;
+    width: 100%;
+
+    span {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    input,
+    select {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0.3rem;
+      border-bottom: 1.5px solid var(--PrimaryColor);
+      margin: 0.3rem 1rem;
+    }
+
+    ::placeholder {
+      opacity: 0.2;
+      color: var(--PrimaryColor);
+    }
+
+    option {
+      background: var(--BgColor);
+    }
+
+    .TC {
+      margin: 2rem 0;
+      .termsText {
+        margin-left: 0.5rem;
+      }
+
+      input {
+        align-self: center;
+        justify-self: center;
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--PrimaryColor);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.3rem;
+      outline: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      transition: 0.3s;
+
+      .icon {
+        margin-left: 1rem;
+        transition: 0.3s;
+      }
+    }
+
+    button:hover .icon {
+      transform: translateX(10px);
+    }
+    button:hover {
+      background: #463b34;
+    }
+  }
+
+  .bottomDiv {
+    margin-top: 1rem;
+    .dataImg {
+      height: 50px;
+      width: 50px;
+      margin-right: 1rem;
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .dataDesc {
+      display: grid;
+      span {
+        font-size: 1rem;
+      }
+    }
+
+    .contactInfo:nth-child(1) {
+      display: flex;
+    }
+
+    .contactInfo {
+      display: grid;
+      margin: 0.2rem auto;
+      padding: 1rem;
+      position: relative;
+      border-radius: 3px;
+    }
+    .contactInfo::after {
+      position: absolute;
+      content: "";
+      display: none;
+      background: var(--SecondaryColor);
+      border-radius: 3px;
+      height: 100%;
+      width: 80%;
+      right: 0;
+      z-index: -2;
+    }
+
+    .contactInfo:hover::after {
+      display: block;
+    }
+  }
+}
+
+.footer {
+  margin: 2rem 0 1rem;
+  display: grid;
+  gap: 0.3rem;
+
+  text-align: center;
+}
+
+// MEDIA QUERRY SCSS -------------------------------------------------------->
+
+@media screen and (min-width: 548px) {
+  .bottomDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 678px) {
+  .bottomDiv {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .closeDiv,
+  .toggleDiv {
+    display: none;
+  }
+  body {
+    height: 100vh;
+  }
+  .bottomDiv {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .navList {
+    display: flex;
+
+    span,
+    .navLink {
+      margin: 0 1rem;
+    }
+  }
+
+  .section {
+    .content {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+  }
+
+  .middleDiv {
+    .middleTxt {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  .dataDesc {
+    font-size: 0.8rem;
+    line-height: 1rem;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .section {
+    .content {
+      margin-left: 10rem;
+      margin-right: 10rem;
+    }
+  }
+
+  .topDiv {
+    padding: 2rem 0;
+  }
+
+  .header {
+    padding: 1rem 10rem;
+  }
+
+  .bottomDiv {
+    padding: 2rem 0;
+  }
+
+  .bottomDiv {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .content {
+    .subTitle {
+      font-size: 1.3rem !important;
+    }
+    .Title {
+      font-size: 2.8rem !important;
+    }
+  }
+}
